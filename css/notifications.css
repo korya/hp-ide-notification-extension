@@ -1,0 +1,84 @@
+.notificationContainer {
+  display: inline-block;
+  height: inherit;
+  width: inherit;
+  /* Inspired by http://jsfiddle.net/uckZp/1/ */
+}
+.notificationContainer .notificationButton {
+  background: url('../images/icn_notification_16.png') no-repeat;
+  background-position: center;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  width: inherit;
+  height: inherit;
+  border: none;
+  top: 2px;
+  display: inline-block;
+  opacity: 0.7;
+}
+.notificationContainer .notificationButton.empty {
+  opacity: 0.3;
+}
+.notificationContainer .notificationButton:hover:not(.empty) {
+  opacity: 0.9;
+}
+.notificationContainer .notificationCounter {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #FF0000;
+  color: #fff;
+  padding: 2px;
+  font-family: tahoma, arial, 'sans-serif';
+  font-size: 9px;
+  font-weight: bold;
+}
+.notificationContainer .notificationList {
+  position: absolute;
+  top: 30px;
+  left: -15px;
+  max-height: 400px;
+  width: 405px;
+  z-index: 1000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: skyblue;
+}
+.notificationContainer .notificationList .notificationItem {
+  position: relative;
+  background-color: aliceblue;
+  height: 50px;
+  margin: 1px;
+  overflow: hidden;
+}
+.notificationContainer .notificationList .notificationItem:not(.unread) {
+  background-color: #E7EBFF;
+}
+.notificationContainer .notificationList .notificationItem:hover {
+  cursor: pointer;
+}
+.notificationContainer .notificationList .notificationItem .notificationImage {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+  width: 50px;
+}
+.notificationContainer .notificationList .notificationItem .notificationMessage {
+  position: absolute;
+  top: 0px;
+  left: 50px;
+  height: 35px;
+  margin: 0px;
+  padding: 2px;
+}
+.notificationContainer .notificationList .notificationItem .notificationDate {
+  position: relative;
+  top: 35px;
+  left: 50px;
+  height: 15px;
+  margin: 0px;
+  padding: 2px;
+  font-size: 10px;
+}

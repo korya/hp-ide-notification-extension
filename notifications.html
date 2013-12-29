@@ -1,0 +1,36 @@
+<!-- toggling `showNotificaionList` value -->
+<button class='notificationButton'
+  data-ng-click='showNotificaionList = !showNotificaionList'
+  data-ng-init='showNotificaionList = false'
+  data-ng-class='{empty: unreadCounter == 0}'>
+
+  <span class='notificationCounter'
+    data-ng-show='unreadCounter > 0'>{{unreadCounter}}</span>
+
+</button>
+
+<div class='notificationList' data-ng-show='showNotificaionList'>
+  <div data-ng-repeat='n in notifications | orderBy:"-date"'>
+
+    <div class='notificationItem' role='button'
+      data-ng-class='{unread: !n.seen}'>
+
+      <div class='notificationImage'>
+	<img class='notificaiotnImage'
+	  data-ng-src='{{n.image}}'
+	  data-ng-show='n.image !== undefined'>
+	</img>
+      </div>
+
+      <div class='notificationMessage'>
+	<span type='text'>{{n.message}}</span>
+      </div>
+
+      <div class='notificationDate'>
+	<span type='text'>{{n.date.toGMTString()}}</span>
+      </div>
+
+    </div>
+
+  </div>
+</div>

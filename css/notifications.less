@@ -1,0 +1,95 @@
+.notificationContainer {
+  display: inline-block;
+  height: inherit;
+  width: inherit;
+
+  /* Inspired by http://jsfiddle.net/uckZp/1/ */
+  .notificationButton {
+    background: url('../images/icn_notification_16.png') no-repeat;
+    background-position: center;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    width: inherit;
+    height: inherit;
+    border: none;
+    top: 2px;
+    display: inline-block;
+    opacity: 0.7;
+
+    &.empty {
+      opacity: 0.3;
+    }
+
+    &:hover:not(.empty) {
+      opacity: 0.9;
+    }
+  }
+
+  .notificationCounter {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #FF0000;
+    color: #fff;
+    padding: 2px;
+    font-family: tahoma, arial, 'sans-serif';
+    font-size: 9px;
+    font-weight: bold;
+  }
+
+  .notificationList {
+    position: absolute;
+    top: 30px;
+    left: -15px;
+    max-height: 400px;
+    width: 405px;
+    z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: skyblue;
+
+    .notificationItem {
+      position: relative;
+      background-color: aliceblue;
+      height: 50px;
+      margin: 1px;
+      overflow: hidden;
+
+      &:not(.unread) {
+	background-color: #E7EBFF;
+      }
+
+      &:hover {
+	cursor: pointer;
+      }
+
+      .notificationImage {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 50px;
+	width: 50px;
+      }
+
+      .notificationMessage {
+	position: absolute;
+	top: 0px;
+	left: 50px;
+	height: 35px;
+	margin: 0px;
+	padding: 2px;
+      }
+
+      .notificationDate {
+	position: relative;
+	top: 35px;
+	left: 50px;
+	height: 15px;
+	margin: 0px;
+	padding: 2px;
+	font-size: 10px;
+      }
+    }
+  }
+}
