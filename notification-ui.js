@@ -10,14 +10,18 @@ define([
       $scope.unreadCounter = 0;
       $scope.notifications = notificationService.getAll();
 
+      $scope.removeNotification = function (notification) {
+	notificationService.rem(notification);
+      };
+
       eventBus.vent.on('notification:new', function (notification) {
 	$scope.$apply();
       });
       eventBus.vent.on('notification:rem', function (notification) {
-	$scope.$apply();
+	if (!$scope.$$phase) { $scope.$apply(); }
       });
       eventBus.vent.on('notification:seen', function (notification) {
-	$scope.$apply();
+	if (!$scope.$$phase) { $scope.$apply(); }
       });
 
       $scope.$watch('showNotificaionList', function (newVal, oldVal, $scope) {
