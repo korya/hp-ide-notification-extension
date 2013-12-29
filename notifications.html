@@ -10,6 +10,15 @@
 </button>
 
 <div class='notificationList' data-ng-show='showNotificaionList'>
+  <div class='header'>
+    <span class='readAll' data-ng-click='readAll()'>Read all</span>
+    <span class='removeAll' data-ng-click='removeAll()'>Remove all</span>
+  </div>
+
+  <div class='notificationItem' data-ng-show='notifications.length === 0'>
+    <span>Notification list is empty</span>
+  </div>
+
   <div data-ng-repeat='n in notifications | orderBy:"-date"'>
 
     <div class='notificationItem' role='button'

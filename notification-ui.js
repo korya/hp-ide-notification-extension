@@ -14,6 +14,16 @@ define([
 	notificationService.rem(notification);
       };
 
+      $scope.removeAll = function (notification) {
+	_.forEach($scope.notifications, $scope.removeNotification);
+      };
+
+      $scope.readAll = function (notification) {
+	_.forEach($scope.notifications, function (notification) {
+	  notification.seen = true;
+	});
+      };
+
       eventBus.vent.on('notification:new', function (notification) {
 	$scope.$apply();
       });
@@ -31,9 +41,7 @@ define([
 	   */
 	  $timeout(function () {
 	    $scope.$apply(function () {
-	      _.forEach($scope.notifications, function (notification) {
-		notification.seen = true;
-	      });
+	      $scope.readAll();
 	    });
 	  }, 0);
 	}

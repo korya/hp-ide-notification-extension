@@ -38,12 +38,33 @@
   position: absolute;
   top: 30px;
   left: -15px;
-  max-height: 400px;
+  max-height: 378px;
   width: 418px;
   z-index: 1000;
   overflow-x: hidden;
   overflow-y: auto;
   background-color: skyblue;
+}
+.notificationContainer .notificationList .header {
+  height: 20px;
+}
+.notificationContainer .notificationList .header .readAll {
+  position: absolute;
+  top: 0px;
+  left: 280px;
+  cursor: pointer;
+  text-decoration: underline;
+  color: darkblue;
+  font-size: 13px;
+}
+.notificationContainer .notificationList .header .removeAll {
+  position: absolute;
+  top: 0px;
+  left: 340px;
+  cursor: pointer;
+  text-decoration: underline;
+  color: darkblue;
+  font-size: 13px;
 }
 .notificationContainer .notificationList .notificationItem {
   position: relative;
