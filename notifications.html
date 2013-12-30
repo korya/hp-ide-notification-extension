@@ -1,50 +1,54 @@
-<!-- toggling `showNotificaionList` value -->
-<button class='notificationButton'
-  data-ng-click='showNotificaionList = !showNotificaionList'
-  data-ng-init='showNotificaionList = false'
-  data-ng-class='{empty: unreadCounter == 0}'>
+<div class='notificationContainer' data-ng-controller='notification-ui'>
 
-  <span class='notificationCounter'
-    data-ng-show='unreadCounter > 0'>{{unreadCounter}}</span>
+  <!-- toggling `showNotificaionList` value -->
+  <button class='notificationButton'
+    data-ng-click='showNotificaionList = !showNotificaionList'
+    data-ng-init='showNotificaionList = false'
+    data-ng-class='{empty: unreadCounter == 0}'>
 
-</button>
+    <span class='notificationCounter'
+      data-ng-show='unreadCounter > 0'>{{unreadCounter}}</span>
 
-<div class='notificationList' data-ng-show='showNotificaionList'>
-  <div class='header'>
-    <span class='readAll' data-ng-click='readAll()'>Read all</span>
-    <span class='removeAll' data-ng-click='removeAll()'>Remove all</span>
-  </div>
+  </button>
 
-  <div class='notificationItem' data-ng-show='notifications.length === 0'>
-    <span>Notification list is empty</span>
-  </div>
+  <div class='notificationList' data-ng-show='showNotificaionList'>
+    <div class='header'>
+      <span class='readAll' data-ng-click='readAll()'>Read all</span>
+      <span class='removeAll' data-ng-click='removeAll()'>Remove all</span>
+    </div>
 
-  <div data-ng-repeat='n in notifications | orderBy:"-date"'>
+    <div class='notificationItem' data-ng-show='notifications.length === 0'>
+      <span>Notification list is empty</span>
+    </div>
 
-    <div class='notificationItem' role='button'
-      data-ng-click='onClick(n)'
-      data-ng-class='{unread: !n.seen}'>
+    <div data-ng-repeat='n in notifications | orderBy:"-date"'>
 
-      <div class='notificationRemove' data-ng-click='removeNotification(n)'>
-	<span>x</span>
-      </div>
+      <div class='notificationItem' role='button'
+	data-ng-click='onClick(n)'
+	data-ng-class='{unread: !n.seen}'>
 
-      <div class='notificationImage'>
-	<img class='notificaiotnImage'
-	  data-ng-src='{{n.image}}'
-	  data-ng-show='n.image !== undefined'>
-	</img>
-      </div>
+	<div class='notificationRemove' data-ng-click='removeNotification(n)'>
+	  <span>x</span>
+	</div>
 
-      <div class='notificationMessage'>
-	<span type='text'>{{n.message}}</span>
-      </div>
+	<div class='notificationImage'>
+	  <img class='notificaiotnImage'
+	    data-ng-src='{{n.image}}'
+	    data-ng-show='n.image !== undefined'>
+	  </img>
+	</div>
 
-      <div class='notificationDate'>
-	<span type='text'>{{n.date.toGMTString()}}</span>
+	<div class='notificationMessage'>
+	  <span type='text'>{{n.message}}</span>
+	</div>
+
+	<div class='notificationDate'>
+	  <span type='text'>{{n.date.toGMTString()}}</span>
+	</div>
+
       </div>
 
     </div>
-
   </div>
+
 </div>

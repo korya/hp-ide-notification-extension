@@ -70,6 +70,7 @@ define([
     extModule.directive('cawNotifications', function () {
       return {
 	restrict: 'E',
+	replace: true,
 	templateUrl: 'extensions/hpsw/notifications/1.00/notifications.html'
       };
     });
@@ -79,10 +80,7 @@ define([
     'mastheadService', 'notification-service',
     function (mastheadService, notificationService) {
       mastheadService.forNotifications(function (domElement) {
-	var $notificationHolder = $('<caw-notifications>')
-	  .addClass('notificationContainer')
-	  .attr('data-ng-controller', 'notification-ui');
-	$(domElement).append($notificationHolder);
+	$(domElement).append($('<caw-notifications>'));
       });
     }
   ];
