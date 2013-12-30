@@ -10,6 +10,14 @@ define([
       $scope.unreadCounter = 0;
       $scope.notifications = notificationService.getAll();
 
+      $scope.onClick = function (notification) {
+	notification.seen = true;
+	if (notification.onClick) {
+	  notification.onClick();
+	  $scope.showNotificaionList = false;
+	}
+      };
+
       $scope.removeNotification = function (notification) {
 	notificationService.rem(notification);
       };

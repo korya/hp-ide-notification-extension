@@ -22,6 +22,7 @@
   <div data-ng-repeat='n in notifications | orderBy:"-date"'>
 
     <div class='notificationItem' role='button'
+      data-ng-click='onClick(n)'
       data-ng-class='{unread: !n.seen}'>
 
       <div class='notificationRemove' data-ng-click='removeNotification(n)'>
