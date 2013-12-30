@@ -1,6 +1,6 @@
 define([
   'scripts/core/event-bus',
-  'css!./css/notifications',
+  'css!./less/notifications',
 ], function (eventBus) {
   'use strict';
 
