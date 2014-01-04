@@ -3,129 +3,134 @@
   height: inherit;
   width: inherit;
 
-  /* Inspired by http://jsfiddle.net/uckZp/1/ */
-  .notificationButton {
-    background: url('../images/icn_notification_16.png') no-repeat;
-    background-position: center;
-    position: relative;
-    text-decoration: none;
-    cursor: pointer;
-    width: inherit;
+  > div {
     height: inherit;
-    border: none;
-    top: 2px;
-    display: inline-block;
-    opacity: 0.7;
+    width: inherit;
 
-    &.empty {
-      opacity: 0.3;
-    }
-
-    &:hover:not(.empty) {
-      opacity: 0.9;
-    }
-  }
-
-  .notificationCounter {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: #FF0000;
-    color: #fff;
-    padding: 2px;
-    font-family: tahoma, arial, 'sans-serif';
-    font-size: 9px;
-    font-weight: bold;
-  }
-
-  .notificationList {
-    position: absolute;
-    top: 30px;
-    left: -15px;
-    max-height: 378px;
-    width: 418px;
-    z-index: 1000;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: skyblue;
-
-    .header {
-      height: 20px;
-      
-      .readAll {
-	position: absolute;
-	top: 0px;
-	left: 280px;
-	cursor: pointer;
-	text-decoration: underline;
-	color: darkblue;
-	font-size: 13px;
-      }
-
-      .removeAll {
-	position: absolute;
-	top: 0px;
-	left: 340px;
-	cursor: pointer;
-	text-decoration: underline;
-	color: darkblue;
-	font-size: 13px;
-      }
-    }
-
-    .notificationItem {
+    /* Inspired by http://jsfiddle.net/uckZp/1/ */
+    .notificationButton {
+      background: url('../images/icn_notification_16.png') no-repeat;
+      background-position: center;
       position: relative;
-      background-color: aliceblue;
-      height: 50px;
-      margin: 1px;
-      overflow: hidden;
+      text-decoration: none;
+      cursor: pointer;
+      width: inherit;
+      height: inherit;
+      border: none;
+      top: 2px;
+      display: inline-block;
+      opacity: 0.7;
 
-      &:not(.unread) {
-	background-color: #E7EBFF;
+      &.empty {
+	opacity: 0.3;
       }
 
-      &:hover {
-	cursor: pointer;
+      &:hover:not(.empty) {
+	opacity: 0.9;
+      }
+    }
+
+    .notificationCounter {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: #FF0000;
+      color: #fff;
+      padding: 2px;
+      font-family: tahoma, arial, 'sans-serif';
+      font-size: 9px;
+      font-weight: bold;
+    }
+
+    .notificationList {
+      position: absolute;
+      top: 30px;
+      left: -15px;
+      max-height: 378px;
+      width: 418px;
+      z-index: 1000;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background-color: skyblue;
+
+      .header {
+	height: 20px;
+
+	.readAll {
+	  position: absolute;
+	  top: 0px;
+	  left: 280px;
+	  cursor: pointer;
+	  text-decoration: underline;
+	  color: darkblue;
+	  font-size: 13px;
+	}
+
+	.removeAll {
+	  position: absolute;
+	  top: 0px;
+	  left: 340px;
+	  cursor: pointer;
+	  text-decoration: underline;
+	  color: darkblue;
+	  font-size: 13px;
+	}
       }
 
-      .notificationImage {
-	position: absolute;
-	top: 0px;
-	left: 0px;
+      .notificationItem {
+	position: relative;
+	background-color: aliceblue;
 	height: 50px;
-	width: 50px;
-      }
+	margin: 1px;
+	overflow: hidden;
 
-      .notificationMessage {
-	position: absolute;
-	top: 0px;
-	left: 50px;
-	height: 35px;
-	width: 350px;
-	margin: 0px;
-	padding: 2px;
-      }
+	&:not(.unread) {
+	  background-color: #E7EBFF;
+	}
 
-      .notificationDate {
-	position: absolute;
-	top: 35px;
-	left: 50px;
-	height: 15px;
-	width: 350px;
-	margin: 0px;
-	padding: 2px;
-	font-size: 10px;
-      }
+	&:hover {
+	  cursor: pointer;
+	}
 
-      .notificationRemove {
-	position: absolute;
-	top: 0px;
-	left: 400px;
-	height: 5px;
-	width: 5px;
-	margin: 0px;
-	padding: 0px 2px 0px 0px;
-	font-size: 10px;
+	.notificationImage {
+	  position: absolute;
+	  top: 0px;
+	  left: 0px;
+	  height: 50px;
+	  width: 50px;
+	}
+
+	.notificationMessage {
+	  position: absolute;
+	  top: 0px;
+	  left: 50px;
+	  height: 35px;
+	  width: 350px;
+	  margin: 0px;
+	  padding: 2px;
+	}
+
+	.notificationDate {
+	  position: absolute;
+	  top: 35px;
+	  left: 50px;
+	  height: 15px;
+	  width: 350px;
+	  margin: 0px;
+	  padding: 2px;
+	  font-size: 10px;
+	}
+
+	.notificationRemove {
+	  position: absolute;
+	  top: 0px;
+	  left: 400px;
+	  height: 5px;
+	  width: 5px;
+	  margin: 0px;
+	  padding: 0px 2px 0px 0px;
+	  font-size: 10px;
+	}
       }
     }
   }

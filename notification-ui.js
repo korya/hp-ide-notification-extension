@@ -64,6 +64,23 @@ define([
     }
   ];
 
+  var onOutClickDirective = [
+    '$document',
+    function ($document) {
+      return {
+	restrict: 'A',
+	link: function (scope, element, attrs) {
+	  $document.bind('click', function (event) {
+	    if (element.find(event.target).length) return;
+	    scope.$apply(function () {
+	      scope.$eval(attrs.onOutClick);
+	    });
+	  });
+	},
+      };
+    }
+  ];
+
   function initModule(extModule) {
     extModule.controller('notification-ui', notificationController);
 
@@ -74,6 +91,8 @@ define([
 	templateUrl: 'extensions/hpsw/notifications/1.00/notifications.html'
       };
     });
+
+    extModule.directive('onOutClick', onOutClickDirective);
   }
 
   var runModule = [
