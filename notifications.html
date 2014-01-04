@@ -5,7 +5,7 @@
 
     <!-- toggling `showNotificaionList` value -->
     <button class='notificationButton'
-      data-ng-click='showNotificaionList = !showNotificaionList'
+      data-ng-click='toggleNotificationList()'
       data-ng-class='{empty: unreadCounter == 0}'>
 
       <span class='notificationCounter'
@@ -26,7 +26,7 @@
       <div data-ng-repeat='n in notifications | orderBy:"-date"'>
 
 	<div class='notificationItem' role='button'
-	  data-ng-click='onClick(n)'
+	  data-ng-click='onNotificationClick(n)'
 	  data-ng-class='{unread: !n.seen}'>
 
 	  <div class='notificationRemove' data-ng-click='removeNotification(n)'>

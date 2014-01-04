@@ -5,16 +5,26 @@ define([
   'use strict';
 
   var notificationController = [
-    '$scope', '$timeout', 'notification-service',
-    function ($scope, $timeout, notificationService) {
+    '$scope', 'notification-service',
+    function ($scope, notificationService) {
       $scope.unreadCounter = 0;
       $scope.notifications = notificationService.getAll();
 
-      $scope.onClick = function (notification) {
+      $scope.onNotificationClick = function (notification) {
 	notification.seen = true;
 	if (notification.onClick) {
 	  notification.onClick();
 	  $scope.showNotificaionList = false;
+	}
+      };
+
+      $scope.toggleNotificationList = function (notification) {
+	$scope.showNotificaionList = !$scope.showNotificaionList;
+	/* The notification list was just hidden --
+	 * mark all notifications as seen
+	 */
+	if (!$scope.showNotificaionList) {
+	  $scope.readAll();
 	}
       };
 
@@ -40,19 +50,6 @@ define([
       });
       eventBus.vent.on('notification:seen', function (notification) {
 	if (!$scope.$$phase) { $scope.$apply(); }
-      });
-
-      $scope.$watch('showNotificaionList', function (newVal, oldVal, $scope) {
-	if (!newVal && oldVal) {
-	  /* The notification list was just hidden -- 
-	   * mark all notifications as seen
-	   */
-	  $timeout(function () {
-	    $scope.$apply(function () {
-	      $scope.readAll();
-	    });
-	  }, 0);
-	}
       });
 
       $scope.$watch('notifications', function (newVal, oldVal, $scope) {
