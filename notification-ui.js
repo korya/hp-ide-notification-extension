@@ -43,7 +43,7 @@ define([
       };
 
       eventBus.vent.on('notification:new', function (notification) {
-	$scope.$apply();
+	if (!$scope.$$phase) { $scope.$apply(); }
       });
       eventBus.vent.on('notification:rem', function (notification) {
 	if (!$scope.$$phase) { $scope.$apply(); }
