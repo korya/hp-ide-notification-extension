@@ -1,7 +1,10 @@
-# Notification extension for HP web-based Pronq IDE
+# Notification extension for HP Pronq IDE
 
-The extension provides a very simple facebook-like notifications.
-The implementation is really very basic: no message types, no aggregation of messages...
+The extension provides a very simple facebook-like notification service.
+The implementation is really very basic: no message types, no aggregation of messages.
+Just a list of notifications, new ones are marked as unseen;
+after the notification is shown it is marked as seen, but yet remains in the list.
+It is possible to clear the notification list.
 
 ## Install
 
