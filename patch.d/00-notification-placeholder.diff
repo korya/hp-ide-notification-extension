@@ -1,0 +1,115 @@
+diff --git a/app/extensions/hpsw/layout/1.00/less/caw-layout.less b/app/extensions/hpsw/layout/1.00/less/caw-layout.less
+index 22d24d9..f20525e 100644
+--- a/app/extensions/hpsw/layout/1.00/less/caw-layout.less
++++ b/app/extensions/hpsw/layout/1.00/less/caw-layout.less
+@@ -67,7 +67,7 @@
+     content: '';
+     position: absolute;
+     top: -9px;
+-    left: 171px;
++    left: 203px;
+     width: 0;
+     height: 0;
+     border: 10px solid transparent;
+@@ -140,6 +140,8 @@
+ @Dashboard-basecolor: #b7ca33;
+ @settings-basecolor: #dfac2f;
+ @agm-basecolor: #53CDB8;
++@codeReviewDashboard-basecolor: #c71ece;
++@codeReviewPage-basecolor: #ff912c;
+ 
+ #menuItem-ide-page {
+   .mm-item-icon {
+@@ -171,6 +173,18 @@
+   }
+ }
+ 
++#menuItem-codeReviewDashboard {
++  .mm-item-icon {
++    background-color: @codeReviewDashboard-basecolor;
++  }
++}
++
++#menuItem-codeReviewPage {
++  .mm-item-icon {
++    background-color: @codeReviewPage-basecolor;
++  }
++}
++
+ .caw-mega-menu #menuItem-agmPage .mm-item-icon {
+   background-image: url(../../agm/Images/icn_agm.png);
+   background-repeat: no-repeat;
+@@ -279,6 +293,15 @@
+     margin-left: 16px;
+   }
+ 
++  .notification-place-holder {
++    display: inline;
++    width: 23px;
++    height: 16px;
++    position: relative;
++    padding: 0;
++    margin: 0px 5px 0px 5px;
++  }
++
+   .logo-place-holder {
+     padding-left: 71+10px;
+     padding-right: 13px;
+@@ -320,7 +343,7 @@
+   */
+   position: absolute;
+   top: -27px;
+-  left: 205px;
++  left: 235px;
+   font-size: 13px;
+   color: #000000;
+ 
+diff --git a/app/extensions/hpsw/layout/1.00/modules/ide-layout.js b/app/extensions/hpsw/layout/1.00/modules/ide-layout.js
+index ec398bc..ad93c53 100644
+--- a/app/extensions/hpsw/layout/1.00/modules/ide-layout.js
++++ b/app/extensions/hpsw/layout/1.00/modules/ide-layout.js
+@@ -807,7 +807,7 @@ define([
+ 										parentPaneId: _pane
+ 									}
+ 								);
+-								this.appended = true;
++								this._appended = true;
+ 							};
+ 
+ 							this.select = function() {
+diff --git a/app/extensions/hpsw/layout/1.00/modules/masthead.js b/app/extensions/hpsw/layout/1.00/modules/masthead.js
+index eca8521..ef6d284 100644
+--- a/app/extensions/hpsw/layout/1.00/modules/masthead.js
++++ b/app/extensions/hpsw/layout/1.00/modules/masthead.js
+@@ -8,7 +8,14 @@ define([
+ 	var mastheadService = {};
+ 
+ 	function _createMastheadContent(){
+-		var $mastheadHtml = $('<div class="logo-place-holder"><div class="caw-logo">Code</div></div><div class="access-mega-menu"></div><div class="east-place-holder"></div> ');
++		var mastheadHtmlStr =
++		  '<div class="logo-place-holder">' +
++		    '<div class="caw-logo">Code</div>' +
++		  '</div>' +
++		  '<div class="notification-place-holder"></div>' +
++		  '<div class="access-mega-menu"></div>' +
++		  '<div class="east-place-holder"></div>';
++		var $mastheadHtml = $(mastheadHtmlStr);
+ 		$('.caw-masthead').append($mastheadHtml);
+ 	}
+ 
+@@ -23,6 +30,15 @@ define([
+ 		$('.logo-place-holder').append(domElement);
+ 	};
+ 
++    /**
++     * Add notifications
++     *
++     * @method forNotifications
++     * @param {render} render function
++     */
++	mastheadService.forNotifications = function(render){
++		render($('.notification-place-holder')[0]);
++	};
+ 
+     /**
+      * Add mega menu

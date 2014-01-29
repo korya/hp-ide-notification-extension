@@ -21,6 +21,14 @@ Tell the server about to load the extension by adding the following line to
     {"id":"notifications","version":1,"author":"hpsw"}
 ```
 
+In current implementattion, in addition to installation of the plugin, you have
+to apply a patch, that reserves a space for notification icon by putting a
+placeholder for it:
+```javascript
+$ cd <IDE source>
+$ patch -p0 < app/extensions/hpsw/notifications/1.00/patch.d/00-notification-placeholder.diff
+```
+
 ## API
 
 The extensions provides `angular` service `notification-service` with following signature:
