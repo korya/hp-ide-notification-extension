@@ -6,6 +6,10 @@ Just a list of notifications, new ones are marked as unseen;
 after the notification is shown it is marked as seen, but yet remains in the list.
 It is possible to clear the notification list.
 
+![Folded notification bar](https://raw.github.com/korya/hp-ide-code-review-extension/gh-pages/images/notification-folded.png)
+
+![Unfolded notification bar](https://raw.github.com/korya/hp-ide-code-review-extension/gh-pages/images/notification-unfolded.png)
+
 ## Install
 
 Fast and easy way:
