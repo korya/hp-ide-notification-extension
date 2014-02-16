@@ -9,10 +9,9 @@ It is possible to clear the notification list.
 ## Install
 
 Fast and easy way:
-```shell
+```bash
 $ cd <IDE source>
 $ curl -s https://raw.github.com/korya/hp-ide-git-extension/master/install.sh | sh
-```
 
 Otherwise, use the steps below.
 
@@ -21,34 +20,31 @@ Otherwise, use the steps below.
 We will use [jsontool](https://github.com/trentm/json) in order to modify
 `JSON`-formatted configuration files, so first make sure it's installed:
 
-```shell
+```bash
 $ npm install -g jsontool
-```
 
 Now clone the extension into your tree:
 
-```shell
+```bash
 $ cd <IDE source>
 $ git submodule add \
     https://github.com/korya/hp-ide-notification-extension.git \
     app/extensions/hpsw/notifications/1.00
-```
 
 Tell the server to load the extension by adding the following line to
 `server/file-system/extensions/manifest.json`:
 
-```shell
+```bash
 $ json -I -f server/file-system/extensions/manifest.json \
   -E 'this.defaultExtension.push({"id":"notifications","version":1,"author":"hpsw"})'
-```
 
 In current implementattion, in addition to the installation of the extension,
 you have to apply a patch, that reserves a space for notification icon by
 putting a placeholder for it. To apply the patch:
-```shell
+
+```bash
 $ cd <IDE source>
 $ patch -p1 <app/extensions/hpsw/notifications/1.00/patch.d/00-notification-placeholder.diff
-```
 
 ## API
 
