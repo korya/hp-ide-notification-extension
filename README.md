@@ -38,14 +38,14 @@ Tell the server to load the extension by adding the following line to
 `server/file-system/extensions/manifest.json`:
 
 ```shell
-  json -I -f server/file-system/extensions/manifest.json \
-    -E 'this.defaultExtension.push({"id":"notifications","version":1,"author":"hpsw"})'
+$ json -I -f server/file-system/extensions/manifest.json \
+  -E 'this.defaultExtension.push({"id":"notifications","version":1,"author":"hpsw"})'
 ```
 
 In current implementattion, in addition to the installation of the extension,
 you have to apply a patch, that reserves a space for notification icon by
 putting a placeholder for it. To apply the patch:
-```javascript
+```shell
 $ cd <IDE source>
 $ patch -p1 <app/extensions/hpsw/notifications/1.00/patch.d/00-notification-placeholder.diff
 ```
