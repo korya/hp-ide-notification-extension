@@ -1,4 +1,4 @@
-# Notification extension for HP Pronq IDE
+# Notifications for HP IDE Pronq
 
 The extension provides a very simple facebook-like notification service.
 The implementation is really very basic: no message types, no aggregation of messages.
@@ -16,7 +16,7 @@ Fast and easy way:
 
 ```bash
 $ cd <IDE source>
-$ curl -s https://raw.github.com/korya/hp-ide-git-extension/master/install.sh | sh
+$ curl -s https://raw.github.com/korya/hp-ide-notification-extension/master/install.sh | sh
 ```
 
 Otherwise, use the steps below.
@@ -39,7 +39,7 @@ $ git submodule add \
     app/extensions/hpsw/notifications/1.00
 ```
 
-Tell the server to load the extension by adding the following line to
+Tell the server to load the extension in
 `server/file-system/extensions/manifest.json`:
 
 ```bash
