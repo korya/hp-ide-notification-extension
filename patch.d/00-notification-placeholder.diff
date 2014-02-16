@@ -64,19 +64,6 @@ index 22d24d9..f20525e 100644
    font-size: 13px;
    color: #000000;
  
-diff --git a/app/extensions/hpsw/layout/1.00/modules/ide-layout.js b/app/extensions/hpsw/layout/1.00/modules/ide-layout.js
-index ec398bc..ad93c53 100644
---- a/app/extensions/hpsw/layout/1.00/modules/ide-layout.js
-+++ b/app/extensions/hpsw/layout/1.00/modules/ide-layout.js
-@@ -807,7 +807,7 @@ define([
- 										parentPaneId: _pane
- 									}
- 								);
--								this.appended = true;
-+								this._appended = true;
- 							};
- 
- 							this.select = function() {
 diff --git a/app/extensions/hpsw/layout/1.00/modules/masthead.js b/app/extensions/hpsw/layout/1.00/modules/masthead.js
 index eca8521..ef6d284 100644
 --- a/app/extensions/hpsw/layout/1.00/modules/masthead.js
