@@ -68,5 +68,8 @@ The extensions provides `angular` service `notification-service` with following 
 ## Example
 
 The extension is used in
-[Code Review extension](https://github.com/korya/hp-ide-code-review-extension).
-For example look [here](https://github.com/korya/hp-ide-code-review-extension).
+[Code Review extension][1].
+For example look [here][2].
+
+[1]: https://github.com/korya/hp-ide-code-review-extension
+[2]: https://github.com/korya/hp-ide-code-review-extension/blob/master/client/notifications/code-review-notifications.js
